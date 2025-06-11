@@ -91,7 +91,7 @@ impl Node {
         while attempts <= self.max_retries {
             match self.execute_logic() {
                 Ok(_) => break,
-                Err(e) if attempts < self.max_retries => {
+                Err(_) if attempts < self.max_retries => {
                     std::thread::sleep(std::time::Duration::from_secs(self.wait as u64));
                     attempts += 1;
                     continue;
