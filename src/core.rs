@@ -72,8 +72,8 @@ impl Node {
 
     /// Sets the wait time in secs between retries
     pub fn with_wait(mut self, wait: u8) -> Result<Self, NodeError> {
-        if wait > MAX_RETRIES {
-            return Err(NodeError::InvalidWaitTime(wait, MAX_RETRIES));
+        if wait > MAX_WAIT_SECONDS {
+            return Err(NodeError::InvalidWaitTime(wait, MAX_WAIT_SECONDS));
         }
         self.wait = wait;
         Ok(self)
